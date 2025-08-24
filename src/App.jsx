@@ -3,6 +3,7 @@ import Login from "./pages/Login";
 import Brands from "./pages/Brands";
 import Cars from "./pages/Cars";
 import Car from "./pages/Car";
+import NotFound from "./pages/NotFound";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { useEffect } from "react";
 import HeaderBanner from './components/HeaderBanner';
@@ -32,7 +33,8 @@ function App() {
         <Route path="/brands/:brandId/cars/:carId" element={<ProtectedRoute><Car /></ProtectedRoute>} />
 
         {/* Default redirect: if root, go to login */}
-        <Route path="*" element={<Login />} />
+        <Route path="/" element={<Login to="/login" />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );

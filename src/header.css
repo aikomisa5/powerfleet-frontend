@@ -1,0 +1,15 @@
+.header-banner {
+  width: 100%;
+  background-color: #00594d; /* Match page background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.header-banner img {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  object-fit: contain;
+}

@@ -1,0 +1,77 @@
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: calc(100vh - 250px); /* subtract banner height */
+  background-color: #e8efee;
+  padding: 2rem;
+}
+
+.login-card {
+  background-color: transparent; /* o #f5f5f5 si quieres algo suave */
+  box-shadow: none;
+  padding: 2rem;
+  border-radius: 0;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.login-card h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #00796B;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.login-card h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #00796B;
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+.login-card input,
+.login-card button {
+  height: 48px;
+  box-sizing: border-box;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 0.75rem;
+  color: white;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+.login-card input::placeholder {
+  color: white;
+  opacity: 1; /* Asegura que no se vea desvanecido */
+}
+
+.login-card button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #00796B;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-card button:hover {
+  background-color: #005F4F;
+}

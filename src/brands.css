@@ -1,0 +1,74 @@
+.brands-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: calc(100vh - 250px); /* subtract banner height */
+  background-color: #e8efee;
+  padding: 0rem;
+}
+
+.brands {
+  background-color: transparent; /* o #f5f5f5 si quieres algo suave */
+  box-shadow: none;
+  border-radius: 0;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  padding: 0rem;
+}
+
+.brands h2 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #00796B;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.brands h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #00796B;
+  margin: 8px auto 0;
+  border-radius: 2px;
+}
+
+.brand-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+  justify-content: center;
+}
+
+.brand-item {
+  width: 140px;
+  height: 140px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: transform 0.2s ease;
+}
+
+.brand-item:hover {
+  transform: scale(1.05);
+}
+
+.brand-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.brand-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}

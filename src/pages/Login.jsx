@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "../login.css"; // We'll define styles here
 
 const POWERFLEET_API_URL = import.meta.env.VITE_POWERFLEET_API_URL;
 
@@ -37,7 +38,7 @@ export default function Login() {
                     "Accept": "application/json"
                 }
         });
-            console.log("Login success:", res.data);
+            console.log("Login success!");
             // guardar token en localStorage
             localStorage.setItem("token", res.data.access_token);
             navigate("/brands")
@@ -48,27 +49,35 @@ export default function Login() {
     };
 
     if (loading) {
-        return <div>Cargando...</div>;
+        return (
+            <div className="spinner-container">
+            <div className="spinner"></div>
+            </div>
+        );
     }
 
     return (
-        <div>
-            <h2>Login</h2>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="user"
-                    placeholder="Username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
-                <input
-                    type="password"
-                    placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-                <button type="submit">Entrar</button>
-            </form>
+        <div className="login-wrapper">
+            <div className="login-card">
+                <h2>Login</h2>
+                <form onSubmit={handleSubmit}>
+                    <input
+                        type="user"
+                        placeholder="Usuario"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        required
+                    />
+                    <input
+                        type="password"
+                        placeholder="Contraseña"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                    <button type="submit">Entrar</button>
+                </form>
+            </div>
         </div>
     );
 }

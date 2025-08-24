@@ -28,7 +28,11 @@ export default function ProtectedRoute({ children }) {
     }, []);
 
     if (loading) {
-        return <div>Cargando...</div>;
+        return (
+            <div className="spinner-container">
+                <div className="spinner"></div>
+            </div>
+        );
     }
 
     return isAuth ? children : <Navigate to="/login" />;

@@ -1,8 +1,17 @@
 import { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import "../cars.css"; // We'll define styles here
+import renaultImg from "../assets/renault.png";
+import toyotaImg from "../assets/toyota.png";
 
 const POWERFLEET_API_URL = import.meta.env.VITE_POWERFLEET_API_URL;
+
+const brandImages = {
+    Renault: renaultImg,
+    Toyota: toyotaImg,
+};
+
 
 export default function Cars() {
     const navigate = useNavigate();
@@ -34,39 +43,37 @@ export default function Cars() {
     if (loading) {
         return (
             <div className="spinner-container">
-            <div className="spinner"></div>
+                <div className="spinner"></div>
             </div>
         );
     }
 
     return (
-        <div>
-            <button
-                onClick={() => navigate(-1)}
-                style={{
-                    marginBottom: "1rem",
-                    padding: "0.5rem 1rem",
-                    backgroundColor: "#007bff",
-                    color: "#fff",
-                    border: "none",
-                    borderRadius: "4px",
-                    cursor: "pointer",
-                    fontSize: "1rem"
-                }}
-            >
-                ← Volver
-            </button>
+        <>
+            <div className="header-row">
+                <button
+                    onClick={() => navigate(-1)}
+                    className="back-button"
+                >
+                    ← Volver
+                </button>
+                <img src={brandImages[cars.at(0)?.model]} alt="Autos Banner" className="autos-banner" />
+            </div>
 
-            <h2>Autos</h2>
-            <ul>
-                {cars.map((car) => (
-                    <li key={car.id}>
-                        <Link to={`/brands/${brandId}/cars/${car.id}`}>
-                            {car.model}
-                        </Link>
-                    </li>
-                ))}
-            </ul>
-        </div>
+            <div className="brands-wrapper">
+                <div className="brands">
+                    <h2>Autos</h2>
+                    <ul>
+                        {cars.map((car) => (
+                            <li key={car.id}>
+                                <Link to={`/brands/${brandId}/cars/${car.id}`}>
+                                    {car.model}
+                                </Link>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+        </>
     );
 }

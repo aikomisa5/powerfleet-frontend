@@ -2,6 +2,10 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
 
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import "../car.css"; // We'll define styles here
+
 const POWERFLEET_API_URL = import.meta.env.VITE_POWERFLEET_API_URL;
 
 export default function Car() {
@@ -78,14 +82,14 @@ export default function Car() {
     if (loading) {
         return (
             <div className="spinner-container">
-            <div className="spinner"></div>
+                <div className="spinner"></div>
             </div>
         );
     }
 
     return (
         <div>
-            
+
             <button
                 onClick={() => navigate(-1)}
                 style={{
@@ -103,74 +107,34 @@ export default function Car() {
             </button>
 
             <h3>Fotos</h3>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
-                {pictures.map((pic) => (
-                    <div key={pic.id} style={{ width: "300px", textAlign: "center" }}>
-                        {pic.base64 ? (
-                            <img
-                                src={pic.base64}
-                                alt={pic.description}
-                                style={{ width: "100%", height: "auto", borderRadius: "8px" }}
-                                onClick={() => {
-                                    setSelectedImage(pic);
-                                    setShowModal(true);
-                                }}
-                            />
-                        ) : (
-                            <p>Imagen no disponible</p>
-                        )}
-                        <p>{pic.description}</p>
-                    </div>
-                ))}
-            </div>
-
-            {showModal && selectedImage && (
-                <div
-                    style={{
-                        position: "fixed",
-                        top: 0,
-                        left: 0,
-                        width: "100vw",
-                        height: "100vh",
-                        backgroundColor: "rgba(0,0,0,0.8)",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        zIndex: 1000
-                    }}
-                >
-                    {/* Close Button */}
-                    <button
-                        onClick={() => setShowModal(false)}
-                        style={{
-                            position: "absolute",
-                            top: "20px",
-                            right: "30px",
-                            background: "transparent",
-                            border: "none",
-                            fontSize: "2rem",
-                            color: "#fff",
-                            cursor: "pointer"
-                        }}
-                        aria-label="Cerrar"
-                    >
-                        &times;
-                    </button>
-
-                    {/* Image and Description */}
-                    <div style={{ maxWidth: "90%", maxHeight: "90%", textAlign: "center" }}>
-                        <img
-                            src={selectedImage.base64}
-                            alt={selectedImage.description}
-                            style={{ width: "100%", height: "auto", borderRadius: "8px" }}
-                        />
-                        <p style={{ color: "#fff", marginTop: "1rem" }}>
-                            {selectedImage.description}
-                        </p>
-                    </div>
-                </div>
-            )}
-
+<Swiper spaceBetween={10} slidesPerView={1}>
+  {pictures.map((pic, index) => (
+    <SwiperSlide key={pic.id}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          padding: "10px",
+          cursor: "pointer"
+        }}
+        onClick={() => {
+          setSelectedImage(index);
+          setShowModal(true);
+        }}
+      >
+        <img
+          src={pic.base64}
+          alt={pic.description}
+          style={{ width: "100%", maxHeight: "400px", objectFit: "cover", borderRadius: "8px" }}
+        />
+        <p style={{ marginTop: "8px", fontSize: "14px", color: "#555", textAlign: "center" }}>
+          {pic.description}
+        </p>
+      </div>
+    </SwiperSlide>
+  ))}
+</Swiper>
 
         </div>
     );

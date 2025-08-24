@@ -4,10 +4,26 @@ import Brands from "./pages/Brands";
 import Cars from "./pages/Cars";
 import Car from "./pages/Car";
 import ProtectedRoute from "./components/ProtectedRoute";
+import { useEffect } from "react";
+import HeaderBanner from './components/HeaderBanner';
+
+const POWERFLEET_API_URL = import.meta.env.VITE_POWERFLEET_API_URL;
 
 function App() {
+  useEffect(() => {
+    console.log("GET Hello about to be executed...");
+    const interval = setInterval(() => {
+      fetch(`${POWERFLEET_API_URL}/hello`)
+      .then(() => console.log("GET Hello successful"))
+      .catch((err) => console.error("GET Hello failed", err))
+    }, 600000); // cada 10 minutos
+
+    return () => clearInterval(interval); // Limpieza al desmontar
+  }, []);
+
   return (
     <BrowserRouter>
+    <HeaderBanner /> {/* This will show on all pages */}
       <Routes>
         <Route path="/login" element={<Login />} />
         

@@ -39,6 +39,24 @@
   border-radius: 2px;
 }
 
+.login-card input {
+  width: 100%;
+  padding: 0.75rem;
+  color: #000 !important; /* Force black text */
+  background-color: #ffffff !important; /* Force white background */
+  margin-bottom: 1rem;
+  border: 1px solid #00796B;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-shadow: none;
+  appearance: none;
+}
+
+.login-card input::placeholder {
+  color: #888 !important;
+  opacity: 1 !important;
+}
+
 .login-card input,
 .login-card button {
   height: 48px;

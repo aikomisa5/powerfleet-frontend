@@ -4,7 +4,10 @@ import axios from "axios";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import "../car.css"; // We'll define styles here
+import FullscreenModal from "../components/gallery/FullScreenModal";
+import Gallery from "../components/gallery/Gallery";
+
+
 
 const POWERFLEET_API_URL = import.meta.env.VITE_POWERFLEET_API_URL;
 
@@ -106,35 +109,14 @@ export default function Car() {
                 ← Volver
             </button>
 
-            <h3>Fotos</h3>
-<Swiper spaceBetween={10} slidesPerView={1}>
-  {pictures.map((pic, index) => (
-    <SwiperSlide key={pic.id}>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          padding: "10px",
-          cursor: "pointer"
-        }}
-        onClick={() => {
-          setSelectedImage(index);
-          setShowModal(true);
-        }}
-      >
-        <img
-          src={pic.base64}
-          alt={pic.description}
-          style={{ width: "100%", maxHeight: "400px", objectFit: "cover", borderRadius: "8px" }}
-        />
-        <p style={{ marginTop: "8px", fontSize: "14px", color: "#555", textAlign: "center" }}>
-          {pic.description}
-        </p>
-      </div>
-    </SwiperSlide>
-  ))}
-</Swiper>
+            <Gallery pictures={pictures} onSelect={(pic) => setSelectedImage(pic)} />
+
+            {selectedImage && (
+                <FullscreenModal
+                    image={selectedImage}
+                    onClose={() => setSelectedImage(null)}
+                />
+            )}
 
         </div>
     );

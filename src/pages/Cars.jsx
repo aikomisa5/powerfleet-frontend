@@ -57,7 +57,6 @@ export default function Cars() {
                 >
                     ← Volver
                 </button>
-                <img src={brandImages[cars.at(0)?.model]} alt="Autos Banner" className="autos-banner" />
             </div>
 
             <div className="brands-wrapper">

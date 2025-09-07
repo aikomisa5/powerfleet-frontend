@@ -97,8 +97,6 @@ export default function Car() {
                 <button onClick={() => navigate(-1)} className="back-button">
                     ← Volver
                 </button>
-
-                <LogoutButton /> {/* Botón de cerrar sesión */}
             </div>
 
             <div>

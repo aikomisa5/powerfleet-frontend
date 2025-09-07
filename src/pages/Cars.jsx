@@ -56,7 +56,6 @@ export default function Cars() {
                     ← Volver
                 </button>
 
-                <LogoutButton /> {/* Botón de cerrar sesión */}
             </div>
 
             <div className="brands-wrapper">

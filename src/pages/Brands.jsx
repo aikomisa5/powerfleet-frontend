@@ -3,16 +3,38 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import "../brands.css"; // We'll define styles here
 
-import renaultImg from "../assets/renault.png";
 import toyotaImg from "../assets/toyota.png";
+import renaultImg from "../assets/renault.png";
 import kiaImg from "../assets/kia.png";
+import nissanImg from "../assets/nissan.png";
+import dodgeImg from "../assets/dodge.png";
+import fiatImg from "../assets/fiat.png";
+import fordImg from "../assets/ford.png";
+import fotonImg from "../assets/foton.png";
+import hyundaiImg from "../assets/hyundai.png";
+import ivecoImg from "../assets/iveco.png";
+import mercedesImg from "../assets/mercedes.png";
+import scaniaImg from "../assets/scania.png";
+import volkswagenImg from "../assets/volkswagen.png";
+import volvoImg from "../assets/volvo.png";
 
 const POWERFLEET_API_URL = import.meta.env.VITE_POWERFLEET_API_URL;
 
 const brandImages = {
     Renault: renaultImg,
     Toyota: toyotaImg,
-    Kia: kiaImg
+    Kia: kiaImg,
+    Nissan: nissanImg,
+    Dodge: dodgeImg,
+    Fiat: fiatImg,
+    Ford: fordImg,
+    Foton: fotonImg,
+    Hyundai: hyundaiImg,
+    Iveco: ivecoImg,
+    Mercedes: mercedesImg,
+    Scania: scaniaImg,
+    Volkswagen: volkswagenImg,
+    Volvo: volvoImg
 };
 
 

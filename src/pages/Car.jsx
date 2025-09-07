@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-
+import "../car.css"; // We'll define styles here
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import FullscreenModal from "../components/gallery/FullScreenModal";
@@ -91,33 +91,26 @@ export default function Car() {
     }
 
     return (
-        <div>
+        <>
+            <div className="header-row" >
+                <button onClick={() => navigate(-1)} className="back-button">
+                    ← Volver
+                </button>
 
-            <button
-                onClick={() => navigate(-1)}
-                style={{
-                    marginBottom: "1rem",
-                    padding: "0.5rem 1rem",
-                    backgroundColor: "#007bff",
-                    color: "#fff",
-                    border: "none",
-                    borderRadius: "4px",
-                    cursor: "pointer",
-                    fontSize: "1rem"
-                }}
-            >
-                ← Volver
-            </button>
+                <LogoutButton /> {/* Botón de cerrar sesión */}
+            </div>
 
-            <Gallery pictures={pictures} onSelect={(pic) => setSelectedImage(pic)} />
+            <div>
+                <Gallery pictures={pictures} onSelect={(pic) => setSelectedImage(pic)} />
 
-            {selectedImage && (
-                <FullscreenModal
-                    image={selectedImage}
-                    onClose={() => setSelectedImage(null)}
-                />
-            )}
+                {selectedImage && (
+                    <FullscreenModal
+                        image={selectedImage}
+                        onClose={() => setSelectedImage(null)}
+                    />
+                )}
 
-        </div>
+            </div>
+        </>
     );
 }

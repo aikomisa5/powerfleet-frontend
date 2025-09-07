@@ -1,8 +1,14 @@
+import { useNavigate } from "react-router-dom";
+
 function LogoutButton() {
+  const navigate = useNavigate();
+
   const handleLogout = () => {
     localStorage.removeItem("token");
-    window.location.href = "/login"; // simple redirect
+    navigate("/login"); // SPA navigation
   };
 
-  return <button onClick={handleLogout}>Logout</button>;
+  return <button onClick={handleLogout}>Cerrar Sesión</button>;
 }
+
+export default LogoutButton;

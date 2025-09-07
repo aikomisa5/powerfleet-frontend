@@ -50,13 +50,12 @@ export default function Cars() {
 
     return (
         <>
-            <div className="header-row">
-                <button
-                    onClick={() => navigate(-1)}
-                    className="back-button"
-                >
+            <div className="header-row" >
+                <button onClick={() => navigate(-1)} className="back-button">
                     ← Volver
                 </button>
+
+                <LogoutButton /> {/* Botón de cerrar sesión */}
             </div>
 
             <div className="brands-wrapper">

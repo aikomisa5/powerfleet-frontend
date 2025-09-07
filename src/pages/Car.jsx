@@ -6,6 +6,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import FullscreenModal from "../components/gallery/FullScreenModal";
 import Gallery from "../components/gallery/Gallery";
+import LogoutButton from "../components/buttons/LogoutButton";
 
 
 

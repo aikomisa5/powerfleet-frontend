@@ -4,6 +4,7 @@ import axios from "axios";
 import "../cars.css"; // We'll define styles here
 import renaultImg from "../assets/renault.png";
 import toyotaImg from "../assets/toyota.png";
+import LogoutButton from "../components/buttons/LogoutButton";
 
 const POWERFLEET_API_URL = import.meta.env.VITE_POWERFLEET_API_URL;
 
